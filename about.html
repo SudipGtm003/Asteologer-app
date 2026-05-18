@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Sudip Gautam</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+    <div class="header-left">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </div>
+    <div class="header-center">
+        <h2 data-i18n="banner_welcome">ज्योतिष सेवा</h2>
+    </div>
+    <div class="header-right">
+        <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">EN</button>
+    </div>
+</header>
+
+<div class="nav-overlay"></div>
+
+<nav>
+    <a href="index.html"><span data-i18n="nav_home">Home</span></a>
+    <a href="about.html" class="active"><span data-i18n="nav_about">About Us</span></a>
+    <a href="contact.html"><span data-i18n="nav_contact">Contact Us</span></a>
+    <a href="ai-consultation.html"><span data-i18n="nav_ai">AI Consult</span></a>
+    <a href="rashi-from-name.html"><span data-i18n="nav_rashi_name">नाम → राशि</span></a>
+    <a href="calender.html"><span data-i18n="nav_calender">Calender</span></a>
+    <a href="rashifal.html"><span data-i18n="nav_rashifal">राशिफल</span></a>
+    <a href="kundali.html"><span data-i18n="nav_kundali">कुण्डली</span></a>
+</nav>
+
+<div class="nav-marquee">
+    <div class="marquee-content">
+        <span>* विश्वास र वैदिक ज्ञानको संगम।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* हराएको उत्तर कहिलेकाहीँ ग्रहहरूले दिन्छन्।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* ताराहरूले संकेत दिन्छन्, भाग्यले बाटो देखाउँछ…</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* विश्वास र वैदिक ज्ञानको संगम।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* हराएको उत्तर कहिलेकाहीँ ग्रहहरूले दिन्छन्।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* ताराहरूले संकेत दिन्छन्, भाग्यले बाटो देखाउँछ…</span>
+    </div>
+</div>
+
+<main>
+    <section class="hero-section">
+        <img src="myimg.jpeg" alt="Astrologer Sudip Gautam" class="hero-img">
+        <h1 class="hero-name">Sudip Gautam</h1>
+        <h3 class="hero-title" data-i18n="hero_prof">Professional Astrologer</h3>
+        <p class="hero-tagline" data-i18n="hero_tagline">Vedic Astrology, Kundali Analysis & Spiritual Guidance</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="btn-primary" data-i18n="hero_btn_book">View Analysis</a>
+            <a href="https://wa.me/9779815068928" class="btn-secondary" target="_blank" data-i18n="hero_btn_wa">WhatsApp Now</a>
+        </div>
+    </section>
+
+    <div class="box" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="color: var(--primary);" data-i18n="about_title">हाम्रो बारेमा (About Us)</h2>
+        <div style="margin-top: 2rem;">
+            <p data-i18n="about_p1"><strong>ज्योतिष दर्पण</strong> मा स्वागत छ। हामी वैदिक ज्योतिष, पञ्चाङ्ग, र राशिफलका सेवाहरू प्रदान गर्दछौं।</p>
+            <p data-i18n="about_p2">हाम्रो लक्ष्य भनेको प्राचीन ज्योतिषीय ज्ञानलाई आधुनिक र सुलभ तरिकाले सबैमा पुर्याउनु हो। हामीले दैनिक राशिफल, शुभ साइत, र कुण्डली परामर्श जस्ता सेवाहरू दिन्छौं।</p>
+            <p style="margin-top: 20px;">ज्योतिष सुदिप गौतम<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">काठमाडौं, नेपाल</span></p>
+        </div>
+    </div>
+</main>
+
+<footer>
+  <div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.95rem;">
+    <a href="contact.html" style="color: var(--primary); text-decoration: none;" data-i18n="nav_contact">सम्पर्क (Contact)</a>
+    <a href="privacy.html" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
+  </div>
+  <p data-i18n="footer_rights">&copy; 2026 All Right Reserved | Sudip Gautam</p>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/sudip.gautam.1420" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </a>
+    <a href="https://www.instagram.com/sudipgautam9" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+    <a href="https://www.tiktok.com/@sudip.gtm" target="_blank" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+    </a>
+    <a href="https://github.com/sudipgtm003" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+    </a>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kundali Analysis - Sudip Gautam</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+    <div class="header-left">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </div>
+    <div class="header-center">
+        <h2 data-i18n="banner_welcome">ज्योतिष सेवा</h2>
+    </div>
+    <div class="header-right">
+        <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">EN</button>
+    </div>
+</header>
+
+<div class="nav-overlay"></div>
+
+<nav>
+    <a href="index.html"><span data-i18n="nav_home">Home</span></a>
+    <a href="about.html"><span data-i18n="nav_about">About Us</span></a>
+    <a href="contact.html"><span data-i18n="nav_contact">Contact Us</span></a>
+    <a href="ai-consultation.html"><span data-i18n="nav_ai">AI Consult</span></a>
+    <a href="rashi-from-name.html"><span data-i18n="nav_rashi_name">नाम → राशि</span></a>
+    <a href="calender.html"><span data-i18n="nav_calender">Calender</span></a>
+    <a href="rashifal.html"><span data-i18n="nav_rashifal">राशिफल</span></a>
+    <a href="kundali.html" class="active"><span data-i18n="nav_kundali">कुण्डली</span></a>
+</nav>
+
+<div class="nav-marquee">
+    <div class="marquee-content">
+        <span>* विश्वास र वैदिक ज्ञानको संगम।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* हराएको उत्तर कहिलेकाहीँ ग्रहहरूले दिन्छन्।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* ताराहरूले संकेत दिन्छन्, भाग्यले बाटो देखाउँछ…</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* विश्वास र वैदिक ज्ञानको संगम।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* हराएको उत्तर कहिलेकाहीँ ग्रहहरूले दिन्छन्।</span>
+        <span style="margin: 0 20px;">* * *</span>
+        <span>* ताराहरूले संकेत दिन्छन्, भाग्यले बाटो देखाउँछ…</span>
+    </div>
+</div>
+
+<main>
+    <div class="box" style="animation: fadeIn 1s ease-out; max-width: 800px; margin: 0 auto; position: relative; overflow: hidden; padding: 0; border-radius: 24px;">
+        <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
+            <img src="src/assets/images/regenerated_image_1778572811671.jpg" alt="Consultation Banner" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6);">
+            <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent, rgba(10, 10, 10, 0.9));"></div>
+            <div style="position: absolute; bottom: 2rem; left: 2rem;">
+                <h2 style="color: var(--primary); margin: 0; font-size: 2.2rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);" data-i18n="kundali_title"> Kundali Analysis</h2>
+            </div>
+        </div>
+        <div style="padding: 2.5rem;">
+            <div data-i18n="ai_warning" style="margin-bottom: 2rem; padding: 1rem; background: rgba(253, 184, 19, 0.05); border: 1px dashed var(--primary); border-radius: 12px; text-align: center; color: var(--primary); font-size: 0.9rem;">
+                ⚠️ AI can make mistakes. Please consult with a professional for critical decisions.
+            </div>
+            <div style="margin-bottom: 3rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem; text-align: center; font-size: 1.4rem;" data-i18n="analysis_main_title">Main Analyses Included in Kundali</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <span data-i18n="analysis_lagna" style="font-size: 0.9rem;">Lagna (Ascendant) Analysis</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                        <span data-i18n="analysis_rashi" style="font-size: 0.9rem;">Rashi / Moon Sign Analysis</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                        <span data-i18n="analysis_planets" style="font-size: 0.9rem;">Planetary Position Analysis</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+                        <span data-i18n="analysis_houses" style="font-size: 0.9rem;">12 Houses Analysis</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span data-i18n="analysis_dasha" style="font-size: 0.9rem;">Dasha System (Mahadasha)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                        <span data-i18n="analysis_yog" style="font-size: 0.9rem;">Yoga Analysis (Raj Yoga etc.)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" x2="9" y1="9" y2="15"/><line x1="9" x2="15" y1="9" y2="15"/></svg>
+                        <span data-i18n="analysis_dosha" style="font-size: 0.9rem;">Dosha Analysis (Manglik etc.)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        <span data-i18n="analysis_career" style="font-size: 0.9rem;">Career Prediction</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <span data-i18n="analysis_marriage" style="font-size: 0.9rem;">Marriage Prediction</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        <span data-i18n="analysis_health" style="font-size: 0.9rem;">Health & Finance</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.8rem; background: rgba(253, 184, 19, 0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(253, 184, 19, 0.2);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4-4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                        <span data-i18n="analysis_remedies" style="font-size: 0.9rem;">Remedies Suggestions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1rem; text-align: center;">
+                 <a href="https://wa.me/9779815068928" target="_blank" class="btn-primary" style="display: inline-block; padding: 1.2rem 2.5rem; font-size: 1.1rem;">Consult Expert Astrologist (WhatsApp)</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+  <div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.95rem;">
+    <a href="contact.html" style="color: var(--primary); text-decoration: none;" data-i18n="nav_contact">सम्पर्क (Contact)</a>
+    <a href="privacy.html" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
+  </div>
+  <p data-i18n="footer_rights">&copy; 2026 All Right Reserved | Sudip Gautam</p>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/sudip.gautam.1420" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </a>
+    <a href="https://www.instagram.com/sudipgautam9" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+    <a href="https://www.tiktok.com/@sudip.gtm" target="_blank" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+    </a>
+    <a href="https://github.com/sudipgtm003" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+    </a>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+</body>
+</html>

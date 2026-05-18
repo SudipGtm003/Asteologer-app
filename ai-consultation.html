@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="ai_consult_title">AI Astrology Consult</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .ai-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-gold);
+        border-radius: 24px;
+        text-align: center;
+    }
+    .ai-warning-box {
+        background: rgba(253, 184, 19, 0.1);
+        border: 1px dashed var(--primary);
+        padding: 1rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        color: var(--primary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    #ai-response {
+        margin-top: 2.5rem;
+        padding: 2.5rem 2rem;
+        background: rgba(15, 10, 5, 0.7);
+        border: 1px solid var(--border-gold);
+        border-radius: 20px;
+        text-align: left;
+        min-height: 120px;
+        display: none;
+        white-space: pre-wrap;
+        line-height: 1.9;
+        font-size: 1.1rem;
+        color: var(--text-light);
+        box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 10px 40px rgba(0,0,0,0.4);
+        position: relative;
+    }
+    #ai-response::before {
+        content: "✦ Cosmic Guidance";
+        position: absolute;
+        top: -12px;
+        left: 20px;
+        background: #0f0a05;
+        padding: 2px 12px;
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 1px solid var(--border-gold);
+        border-radius: 10px;
+    }
+    .example-tag {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-gold);
+        color: var(--text-muted);
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: var(--font-dev);
+    }
+    .example-tag:hover {
+        background: var(--primary);
+        color: var(--bg-dark);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-left">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </div>
+    <div class="header-center">
+        <h2 data-i18n="banner_welcome">ज्योतिष सेवा</h2>
+    </div>
+    <div class="header-right">
+        <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">EN</button>
+    </div>
+</header>
+
+<div class="nav-overlay"></div>
+
+<nav>
+    <a href="index.html" class="active"><span data-i18n="nav_home">Home</span></a>
+    <a href="about.html"><span data-i18n="nav_about">About Us</span></a>
+    <a href="contact.html"><span data-i18n="nav_contact">Contact Us</span></a>
+    <a href="rashi-from-name.html"><span data-i18n="nav_rashi_name">नाम → राशि</span></a>
+    <a href="calender.html"><span data-i18n="nav_calender">Calender</span></a>
+    <a href="rashifal.html"><span data-i18n="nav_rashifal">राशिफल</span></a>
+    <a href="kundali.html"><span data-i18n="nav_kundali">कुण्डली</span></a>
+</nav>
+
+<main>
+    <div class="ai-container reveal">
+        <h2 data-i18n="ai_consult_title" style="margin-bottom: 1rem;">🤖 AI ज्योतिष परामर्श</h2>
+        <p data-i18n="ai_consult_desc" style="color: var(--text-muted); margin-bottom: 2rem;">Get instant answers using AI.</p>
+        
+        <div class="ai-warning-box" data-i18n="ai_warning">
+            ⚠️ Disclaimer: AI can make mistakes. Please consult with a professional astrologer for serious matters.
+        </div>
+
+        <div style="margin-bottom: 2rem; text-align: left;">
+            <p data-i18n="ai_example_title" style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 1px;">Example Questions:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <button onclick="setPrompt('ai_example_1')" class="example-tag" data-i18n="ai_example_1">How will my career be?</button>
+                <button onclick="setPrompt('ai_example_2')" class="example-tag" data-i18n="ai_example_2">Tell me something about my health.</button>
+                <button onclick="setPrompt('ai_example_3')" class="example-tag" data-i18n="ai_example_3">When is my marriage yoga?</button>
+                <button onclick="setPrompt('ai_example_4')" class="example-tag" data-i18n="ai_example_4">Which gemstone is auspicious for me?</button>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <textarea id="ai-question" data-i18n="ai_placeholder" placeholder="Ask your question..." style="min-height: 120px;"></textarea>
+        </div>
+
+        <button onclick="getAIResponse()" class="btn-primary" id="aiBtn">
+            <span data-i18n="ai_btn">Get Answer</span>
+        </button>
+
+        <div id="ai-response"></div>
+    </div>
+</main>
+
+<footer>
+  <div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.95rem;">
+    <a href="contact.html" style="color: var(--primary); text-decoration: none;" data-i18n="nav_contact">सम्पर्क (Contact)</a>
+    <a href="privacy.html" style="color: var(--primary); text-decoration: none;">Privacy Policy</a>
+  </div>
+  <p data-i18n="footer_rights">&copy; 2026 All Right Reserved | Sudip Gautam</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+function setPrompt(key) {
+    const textarea = document.getElementById('ai-question');
+    textarea.value = translations[currentLang][key] || "";
+    textarea.focus();
+}
+
+async function getAIResponse() {
+    const question = document.getElementById('ai-question').value;
+    const aiResponse = document.getElementById('ai-response');
+    const aiBtn = document.getElementById('aiBtn');
+    
+    if (!question.trim()) return;
+
+    aiBtn.disabled = true;
+    const originalText = aiBtn.innerHTML;
+    // Show a lighter loading state
+    aiBtn.innerHTML = translations[currentLang]['ai_loading'] || 'Processing...';
+    
+    aiResponse.style.display = 'block';
+    aiResponse.innerHTML = translations[currentLang]['ai_loading'] || 'Processing...';
+    aiResponse.style.opacity = '0.5';
+
+    try {
+        const response = await fetch('/api/ai-consult', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, lang: currentLang })
+        });
+        
+        if (!response.ok) throw new Error('Failed to fetch');
+        
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let done = false;
+        let firstChunk = true;
+
+        while (!done) {
+            const { value, done: readerDone } = await reader.read();
+            done = readerDone;
+            const chunkValue = decoder.decode(value, { stream: true });
+            
+            if (firstChunk && chunkValue) {
+                aiResponse.innerHTML = chunkValue;
+                aiResponse.style.opacity = '1';
+                firstChunk = false;
+            } else {
+                aiResponse.innerHTML += chunkValue;
+            }
+        }
+    } catch (error) {
+        aiResponse.innerHTML = "Error connecting to the stars. Please try again.";
+        aiResponse.style.opacity = '1';
+    } finally {
+        aiBtn.disabled = false;
+        aiBtn.innerHTML = originalText;
+    }
+}
+</script>
+</body>
+</html>
