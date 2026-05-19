@@ -176,22 +176,30 @@ async function getAIResponse() {
         
         if (!response.ok) throw new Error('Failed to fetch');
         
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        let done = false;
-        let firstChunk = true;
+        const contentType = response.headers.get('content-type') || '';
+        
+        if (contentType.includes('application/json')) {
+            const data = await response.json();
+            aiResponse.innerHTML = data.answer;
+            aiResponse.style.opacity = '1';
+        } else {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let done = false;
+            let firstChunk = true;
 
-        while (!done) {
-            const { value, done: readerDone } = await reader.read();
-            done = readerDone;
-            const chunkValue = decoder.decode(value, { stream: true });
-            
-            if (firstChunk && chunkValue) {
-                aiResponse.innerHTML = chunkValue;
-                aiResponse.style.opacity = '1';
-                firstChunk = false;
-            } else {
-                aiResponse.innerHTML += chunkValue;
+            while (!done) {
+                const { value, done: readerDone } = await reader.read();
+                done = readerDone;
+                const chunkValue = decoder.decode(value, { stream: true });
+                
+                if (firstChunk && chunkValue) {
+                    aiResponse.innerHTML = chunkValue;
+                    aiResponse.style.opacity = '1';
+                    firstChunk = false;
+                } else {
+                    aiResponse.innerHTML += chunkValue;
+                }
             }
         }
     } catch (error) {
