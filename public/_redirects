@@ -1,5 +1,0 @@
-# Proxy API requests to Netlify Functions
-/api/* /.netlify/functions/:splat 200
-
-# Standard MPA behavior: Netlify handles .html extensions automatically.
-# No fallback to index.html is needed for a multi-page site without a JS router.
